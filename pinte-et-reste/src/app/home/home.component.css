@@ -1,0 +1,34 @@
+.pics {
+  float: none;
+  width:  90%;
+  height: 90%;
+  object-fit: cover;
+}
+.oui {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 3%;
+}
+.non {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 3%;
+}
+.noon {
+  background-color: red;
+}
+@media screen and (min-width: 500px) {
+
+  .oui {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 900px) {
+
+  .oui {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+.pages {
+  display: inline-flex;
+}

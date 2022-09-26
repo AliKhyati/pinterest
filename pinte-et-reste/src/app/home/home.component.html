@@ -1,0 +1,26 @@
+<!-- <div class="oui">
+  <div *ngFor="let image of keys">
+  <a [routerLink]="['/details/', image]">
+  <img class="pics" [src]="'assets/images/' + image + '.jpg'"  alt="">
+  </a>
+</div>
+</div>-->
+
+<select (change)="nbImagesPerPage($event)">
+  <option value="">Sélectionner pagination</option>
+  <option value=10>10</option>
+  <option value=20>20</option>
+  <option value=50>50</option>
+</select>
+
+<ul class="pages" *ngFor="let paage of nbPages">
+  <button (click)="pageActual(paage)">{{ paage }}</button>
+</ul>
+<div class="oui" *ngFor="let a of arrayActual">
+  <div *ngFor="let e of a">
+
+  <a [routerLink]="['/details/', e]">
+    <img class="pics" [src]="'assets/images/' + e + '.jpg'"  alt="">
+  </a>
+</div>
+</div>
