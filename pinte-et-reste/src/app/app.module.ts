@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { DetailsComponent } from './details/details.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
     HomeComponent,
     FooterComponent,
     DetailsComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

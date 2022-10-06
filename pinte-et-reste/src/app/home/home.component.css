@@ -3,32 +3,94 @@
   width:  90%;
   height: 90%;
   object-fit: cover;
+  position: relative;
+  z-index: 2;
 }
-.oui {
+.picContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-left: 3%;
+  margin-left: 4%;
+  margin-top: 2%;
+  margin-bottom: 30%;
 }
-.non {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-left: 3%;
+.picContainers {
+  margin-bottom: 10%;
 }
-.noon {
-  background-color: red;
+.pages {
+  padding: 1%;
+  width: 10%;
+  height: 40%;
+}
+.dis {
+  position: absolute;
+  left: -999em;
+}
+
+.nav-btns {
+  margin-top: 8%;
+}
+.page {
+    width: 100%;
+    height: 100%;
+  }
+
+.pages {
+  display: inline-flex;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid var(--main-color); /* Blue */
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  animation: spin 2s linear infinite;
+  z-index: 1;
+  position: absolute;
+  margin-top: 9%;
+  margin-left: 7%;
+
+
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 @media screen and (min-width: 500px) {
 
-  .oui {
+  .picContainer {
     grid-template-columns: repeat(3, 1fr);
+
   }
 }
 @media screen and (min-width: 900px) {
 
-  .oui {
+  .picContainer {
     grid-template-columns: repeat(5, 1fr);
+    margin-left: 2%;
+    margin-bottom: 5%;
+  }
+  .nav-btns {
+    margin-left: 2%;
+  }
+  .loader {
+    width: 130px;
+    height: 130px;
+    margin-top: 8%;
+    margin-left: 5%;
+  }
+  .nav-btns {
+    margin-top: 3%;
+  }
+  .pages {
+    padding: 0.5%;
+    width: 2.5%;
+    height: 25%;
+  }
+  .page {
+    width: 100%;
+    height: 100%;
   }
 }
-.pages {
-  display: inline-flex;
-}
+

@@ -1,26 +1,33 @@
-<!-- <div class="oui">
-  <div *ngFor="let image of keys">
-  <a [routerLink]="['/details/', image]">
-  <img class="pics" [src]="'assets/images/' + image + '.jpg'"  alt="">
-  </a>
+<div class="nav-btns">
+  <select (change)="nbImagesPerPage($event)">
+    <option value="{{ perPage }}">Sélectionner pagination</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="50">50</option>
+  </select>
+  <button *ngIf="reversedArr[0] != keys[0]" (click)="reverseSortImages()">croissant</button>
+  <button *ngIf="sortedArr[0] != keys[0]" (click)="sortImages()">décroissant</button>
+  <div class="page-btn">
+    <button *ngIf="page > 1" (click)="goPreviousPage()">previous</button>
+    <ul class="pages" [ngClass]="i - page <= 2 && i - page >= -4 ? 'pages' : 'dis'" *ngFor="let nbPage of nbPages; let i = index">
+      <button class="page" *ngIf="i - page <= 2 && i - page >= -4" (click)="pageActual(nbPage)">{{ nbPage }}</button>
+    </ul>
+    <button *ngIf="keys.length / perPage >= page && keys.length / perPage > 1" (click)="goNextPage()">next</button>
+  </div>
 </div>
-</div>-->
-
-<select (change)="nbImagesPerPage($event)">
-  <option value="">Sélectionner pagination</option>
-  <option value=10>10</option>
-  <option value=20>20</option>
-  <option value=50>50</option>
-</select>
-
-<ul class="pages" *ngFor="let paage of nbPages">
-  <button (click)="pageActual(paage)">{{ paage }}</button>
-</ul>
-<div class="oui" *ngFor="let a of arrayActual">
-  <div *ngFor="let e of a">
-
-  <a [routerLink]="['/details/', e]">
-    <img class="pics" [src]="'assets/images/' + e + '.jpg'"  alt="">
-  </a>
+<div class="picContainer">
+  <div class="picContainers" *ngFor="let object of arrayActual">
+    <a [routerLink]="['/details/', object]">
+      <div class="loader"></div>
+      <img class="pics" [src]="'assets/images/' + object + '.jpg'"  alt="">
+    </a>
+  </div>
 </div>
-</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+<div class="picContainer" *ngFor="let favorite of favorites">
+  <div class="test">
+    <a [routerLink]="['/details/', favorite]">
+      <img class="pics" [src]="'assets/images/' + favorite + '.jpg'"  alt="">
+    </a>
+    <button class="btn-remove" (click)="removeFavorite(favorite)"> Supprimer</button>
+  </div>
+</div>

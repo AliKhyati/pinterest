@@ -1,3 +1,7 @@
 <div class="details-container">
-<img class="pics details" [src]="'assets/images/' + image + '.jpg'"  alt="">
+  <img class="pics details" [src]="'assets/images/' + image + '.jpg'"  alt="">
 </div>
+<a [href]="file[image]['photo_url']" target="_blank">url photo</a>
+<a [href]="file[image]['user_url']">{{ file[image]['user_name']}}</a>
+<button *ngIf="!favorite" (click)="addFavorite()">ajouter aux favoris</button>
+<button *ngIf="favorite" (click)="removeFavorite(image)">retirer des favoris</button>

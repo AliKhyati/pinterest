@@ -8,38 +8,64 @@ import images  from '../../assets/images/__credits.json';
 })
 export class HomeComponent implements OnInit {
 
-  perPage: number = 50;
-  @Input() file = images
-  try: string = 'input marche';
+  perPage: number = 119;
+  file = images
   page: number = 1;
   array: string[][] = [];
   nbPages: number[] = [];
-  arrayActual: string[][] = [];
-
-
+  arrayActual: string[] = [];
   keys: string[] = Object.keys(this.file);
+  sortedArr: string[] = [...this.keys].sort();
+  reversedArr: string[] = [...this.keys].sort().reverse();
 
   constructor() { }
   ngOnInit(): void {
-    for (let i = 10; i < this.keys.length + 10; i+=10) {
-      this.array.push(this.keys.slice(i-10, i));
+    this.pageActual(1);
+    console.log(this.keys, this.sortedArr, this.reversedArr)
     }
-  }
-  test: string = 'one';
-  nbImagesPerPage(event: any): void{
-    this.perPage = event.target.value;
+
+  nbImagesPerPage(event: Event): void{
+    this.perPage = parseInt((event.target as HTMLInputElement).value);
     this.nbPages = []
-    for (let i = 0; i < 119 / this.perPage; i++){
+    for (let i = 0; i < (119 / this.perPage); i++){
       this.nbPages.push(i+1)
     }
+    this.pageActual(1)
   }
-  pageActual(oui: number) {
-    this.page = oui
+  removeFavorite(item: string) {
+    localStorage.removeItem(item)
+  }
+  addFavorite(item: string) {
+    localStorage.setItem(item, item)
+  }
+  pageActual(page: number) {
+    this.page = page;
     this.arrayActual = [];
-    for (let i = ((this.page * this.perPage) - this.perPage) / 10; i < ((this.page * this.perPage) - this.perPage) / 10 + (this.perPage/10); i++ ) {
-      this.arrayActual.push(this.array[i])
-    }
+    let start: number = this.page * this.perPage - this.perPage;
+    this.arrayActual = this.keys.slice(start, start + this.perPage)
   }
 
 
+
+  goNextPage() {
+    this.page++
+    this.pageActual(this.page)
+  }
+  goPreviousPage() {
+    this.page--
+    this.pageActual(this.page)
+  }
+  sortImages() {
+    this.keys = this.sortedArr
+    console.log('sorted')
+
+
+    this.pageActual(1)
+  }
+  reverseSortImages() {
+    this.keys = this.reversedArr;
+    console.log('reverse')
+    this.pageActual(1)
+
+  }
 }

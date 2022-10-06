@@ -1,0 +1,17 @@
+.pics {
+  float: none;
+  width:  100%;
+  height: 100%;
+}
+
+.picContainer {
+  display: inline-flex;
+  width: 200px;
+  height: 250px;
+  margin: 1%;
+}
+
+.test {
+  text-align: center;
+}
+

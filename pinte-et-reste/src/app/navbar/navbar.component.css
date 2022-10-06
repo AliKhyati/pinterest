@@ -1,0 +1,29 @@
+.links {
+  display: flex;
+  list-style: none;
+  padding-top: 3%;
+}
+.navbar {
+  background-color: var(--main-color);
+  display: flex;
+  padding-inline-start: 2%;
+  height: 100%;
+
+}
+ul>li {
+  margin: 5%;
+}
+.logo {
+  width: 13%;
+}
+
+@media screen and (min-width: 900px) {
+
+  .logo {
+  width: 4%;
+  }
+  .links {
+    padding-top: 2%;
+  }
+
+}
